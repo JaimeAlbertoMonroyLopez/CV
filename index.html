@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CV — Jaime Monroy L.</title>
+    <link rel="stylesheet" href="vendor/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="vendor/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <!--
+      Shell del CV: --cv-sidebar-left / --cv-sidebar-right (TypeScript compilado a dist/cv.js, sin handlers inline).
+      Invocación: CvApp.mount(document.querySelector("[data-cv-app]")); o auto-init por defecto.
+    -->
+    <div
+      class="cv-app"
+      data-cv-app
+      data-cv-auto-init="true"
+      data-cv-theme="dark"
+    >
+      <div class="cv-toolbar">
+        <div class="cv-toolbar__cluster cv-toolbar__cluster--start">
+          <label class="cv-toolbar__label" for="cv-sidebar-left" data-cv-i18n="label-left-width">
+            Left gray zone width
+          </label>
+          <input
+            id="cv-sidebar-left"
+            class="cv-toolbar__range cv-toolbar__range--framed"
+            type="range"
+            min="22"
+            max="45"
+            step="1"
+            value="30"
+            aria-valuemin="22"
+            aria-valuemax="45"
+            data-cv-component="sidebar-width-range"
+            data-cv-css-var="--cv-sidebar-left"
+          >
+        </div>
+        <div class="cv-toolbar__cluster cv-toolbar__cluster--end">
+          <input
+            id="cv-sidebar-right"
+            class="cv-toolbar__range cv-toolbar__range--framed"
+            type="range"
+            min="22"
+            max="45"
+            step="1"
+            value="30"
+            aria-valuemin="22"
+            aria-valuemax="45"
+            data-cv-component="sidebar-width-range"
+            data-cv-css-var="--cv-sidebar-right"
+          >
+          <div class="cv-toolbar__end-meta">
+            <div class="cv-theme-switch" role="group" aria-label="Theme selector">
+              <button
+                class="cv-theme-switch__btn"
+                type="button"
+                data-cv-theme-option="light"
+                data-cv-i18n="theme-light"
+                aria-pressed="false"
+              >
+                Light
+              </button>
+              <button
+                class="cv-theme-switch__btn"
+                type="button"
+                data-cv-theme-option="medium"
+                data-cv-i18n="theme-medium"
+                aria-pressed="false"
+              >
+                Medium
+              </button>
+              <button
+                class="cv-theme-switch__btn"
+                type="button"
+                data-cv-theme-option="dark"
+                data-cv-i18n="theme-dark"
+                aria-pressed="true"
+              >
+                Dark
+              </button>
+            </div>
+            <div class="cv-lang-switch" data-cv-lang-switch>
+              <button
+                id="cv-language-select"
+                class="cv-lang-switch__trigger"
+                type="button"
+                aria-label="Language selector"
+                aria-haspopup="listbox"
+                aria-expanded="false"
+                data-cv-language-trigger
+              >
+                <span
+                  class="cv-lang-switch__flag cv-flag cv-flag--us"
+                  data-cv-language-current-flag
+                  aria-hidden="true"
+                ></span>
+                <span data-cv-language-current-label>EN (US)</span>
+                <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
+              </button>
+              <ul class="cv-lang-switch__menu" role="listbox" hidden data-cv-language-menu>
+                <li class="cv-lang-switch__menu-item">
+                  <button class="cv-lang-switch__option" type="button" data-cv-language-option="en-US">
+                    <span class="cv-lang-switch__flag cv-flag cv-flag--us" aria-hidden="true"></span>
+                    <span>EN (US)</span>
+                  </button>
+                </li>
+                <li class="cv-lang-switch__menu-item">
+                  <button class="cv-lang-switch__option" type="button" data-cv-language-option="es-ES">
+                    <span class="cv-lang-switch__flag cv-flag cv-flag--es" aria-hidden="true"></span>
+                    <span>ESP</span>
+                  </button>
+                </li>
+                <li class="cv-lang-switch__menu-item">
+                  <button class="cv-lang-switch__option" type="button" data-cv-language-option="de-DE">
+                    <span class="cv-lang-switch__flag cv-flag cv-flag--de" aria-hidden="true"></span>
+                    <span>GER</span>
+                  </button>
+                </li>
+                <li class="cv-lang-switch__menu-item">
+                  <button class="cv-lang-switch__option" type="button" data-cv-language-option="fr-FR">
+                    <span class="cv-lang-switch__flag cv-flag cv-flag--fr" aria-hidden="true"></span>
+                    <span>FR</span>
+                  </button>
+                </li>
+              </ul>
+            </div>
+            <label class="cv-toolbar__label" for="cv-sidebar-right" data-cv-i18n="label-right-width">
+              Right gray zone width
+            </label>
+          </div>
+        </div>
+      </div>
+
+      <div class="cv-page-wrap">
+        <aside class="cv-control-rail cv-control-rail--left" aria-label="Left CV controls">
+          <ul class="cv-control-rail__list">
+            <li class="cv-control-rail__item">
+              <button
+                class="cv-control-rail__btn"
+                type="button"
+                aria-label="Add section"
+                data-cv-control="left-add-trigger"
+              >
+                <i class="fa-solid fa-plus" aria-hidden="true"></i>
+              </button>
+            </li>
+          </ul>
+        </aside>
+        <div class="cv-page">
+          <section class="cv-band cv-band--sidebar-left">
+            <aside class="cv-sidebar cv-sidebar--muted" aria-label="Datos laterales izquierdos">
+              <div class="cv-sidebar__sections" data-cv-left-sections></div>
+            </aside>
+
+            <div class="cv-main cv-main--paper">
+              <header class="cv-header">
+                <h1 class="cv-header__name">Jaime Monroy L.</h1>
+                <p class="cv-header__tagline" id="cv-profile-heading">
+                  Senior Full-Stack Developer · C#/.NET · Angular · React · Cloud
+                </p>
+              </header>
+
+              <section class="cv-section" aria-labelledby="cv-section-perfil">
+                <h2 class="cv-section__title" id="cv-section-perfil">
+                  <span class="cv-section__title-text">PERFIL PROFESIONAL</span>
+                </h2>
+                <div class="cv-section__body cv-section__body--placeholder" aria-hidden="true"></div>
+              </section>
+
+              <!-- Fin de la banda superior: antes de Experiencia laboral -->
+            </div>
+          </section>
+
+          <section class="cv-band cv-band--sidebar-right">
+            <aside class="cv-control-rail cv-control-rail--right" aria-label="Right CV controls">
+              <ul class="cv-control-rail__list">
+                <li class="cv-control-rail__item">
+                  <button class="cv-control-rail__btn" type="button" aria-label="Add right section">
+                    <i class="fa-solid fa-plus" aria-hidden="true"></i>
+                  </button>
+                </li>
+              </ul>
+            </aside>
+            <div class="cv-main cv-main--paper">
+              <section class="cv-section cv-section--tight-top" aria-labelledby="cv-section-experiencia">
+                <h2 class="cv-section__title" id="cv-section-experiencia">
+                  <span class="cv-section__title-text">EXPERIENCIA LABORAL</span>
+                </h2>
+                <div class="cv-section__body cv-section__body--placeholder" aria-hidden="true"></div>
+              </section>
+            </div>
+
+            <aside class="cv-sidebar cv-sidebar--muted" aria-label="Datos laterales derechos">
+              <div class="cv-pill-slot">
+                <h2 class="cv-pill">SECCIÓN (LATERAL DERECHA)</h2>
+              </div>
+              <div class="cv-pill-slot">
+                <h2 class="cv-pill">OTRA SECCIÓN</h2>
+              </div>
+            </aside>
+            </section>
+        </div>
+      </div>
+
+      <div class="cv-floating-note" data-cv-floating-note hidden>
+        <button
+          class="cv-floating-note__close"
+          type="button"
+          aria-label="Close text box"
+          data-cv-floating-note-close
+        >
+          <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+        </button>
+        <textarea
+          class="cv-floating-note__input"
+          rows="4"
+          placeholder="Write here..."
+          aria-label="Floating text box"
+          data-cv-floating-note-input
+          data-cv-i18n-placeholder="write-here"
+        ></textarea>
+        <button
+          class="cv-floating-note__add"
+          type="button"
+          data-cv-floating-note-add
+          data-cv-i18n="add-sections"
+        >
+          Add Sections
+        </button>
+        <button
+          class="cv-floating-note__drag"
+          type="button"
+          aria-label="Drag text box"
+          data-cv-floating-note-drag
+        >
+          <i class="fa-solid fa-grip-lines" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
+    <script src="vendor/alpine.min.js" defer></script>
+    <script src="vendor/dexie.min.js" defer></script>
+    <script src="dist/cv.js" defer></script>
+  </body>
+</html>

@@ -1,0 +1,10 @@
+{
+  "extends": ["html-validate:recommended"],
+  "rules": {
+    "no-inline-style": "error",
+    "void-style": ["error", { "style": "omit" }],
+    "attr-quotes": ["error", { "style": "double" }],
+    "element-required-attributes": "error",
+    "prefer-native-element": "off"
+  }
+}

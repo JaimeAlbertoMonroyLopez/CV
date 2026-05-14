@@ -1,0 +1,22 @@
+node_modules/
+npm-debug.log*
+dist/
+.tools/node/
+
+# Local/cache artifacts
+*.log
+.DS_Store
+Thumbs.db
+.eslintcache
+*.tsbuildinfo
+coverage/
+.cache/
+
+# Local environment files (never commit secrets)
+.env
+.env.*
+*.local
+
+# Vendored runtime assets are intentionally versioned
+!vendor/
+!vendor/**

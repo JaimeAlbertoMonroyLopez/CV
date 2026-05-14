@@ -1,0 +1,56 @@
+{
+  "name": "cv",
+  "version": "1.0.0",
+  "description": "",
+  "main": "dist/cv.js",
+  "scripts": {
+    "setup:node": "powershell -ExecutionPolicy Bypass -File \"scripts/setup-local-node.ps1\"",
+    "npm:local": "powershell -ExecutionPolicy Bypass -File \"scripts/npm-local.ps1\"",
+    "install:local": "powershell -ExecutionPolicy Bypass -File \"scripts/npm-local.ps1\" install",
+    "vendor:sync": "powershell -ExecutionPolicy Bypass -File \"scripts/sync-vendor.ps1\"",
+    "build": "npm run quality:check && tsc -p tsconfig.json",
+    "build:watch": "tsc -w -p tsconfig.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "lint": "eslint . --ext .js,.ts",
+    "lint:html": "html-validate \"index.html\"",
+    "lint:css": "stylelint \"styles.css\"",
+    "lint:fix": "eslint . --ext .js,.ts --fix",
+    "arch:check": "depcruise --config .dependency-cruiser.cjs src",
+    "arch:cycles": "madge --circular --extensions ts src",
+    "quality:check": "npm run typecheck && npm run lint && npm run lint:html && npm run lint:css && npm run arch:check && npm run arch:cycles"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JaimeAlbertoMonroyLopez/CV.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JaimeAlbertoMonroyLopez/CV/issues"
+  },
+  "homepage": "https://github.com/JaimeAlbertoMonroyLopez/CV#readme",
+  "engines": {
+    "node": "22.15.x"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.4",
+    "dependency-cruiser": "^17.4.0",
+    "eslint": "^9.39.4",
+    "eslint-plugin-import": "^2.32.0",
+    "globals": "^17.6.0",
+    "html-validate": "^10.9.0",
+    "madge": "^8.0.0",
+    "stylelint": "^17.11.1",
+    "stylelint-config-standard": "^40.0.0",
+    "stylelint-config-standard-scss": "^17.0.0",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.59.3"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^7.2.0",
+    "alpinejs": "^3.15.12",
+    "bootstrap": "^5.3.8",
+    "dexie": "^4.4.2"
+  }
+}
