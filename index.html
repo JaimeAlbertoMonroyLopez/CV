@@ -19,8 +19,9 @@
       data-cv-auto-init="true"
       data-cv-theme="dark"
     >
+      <!-- Toolbar segregado por modulos: sliders, themes, localization -->
       <div class="cv-toolbar">
-        <div class="cv-toolbar__cluster cv-toolbar__cluster--start">
+        <div class="cv-toolbar__cluster cv-toolbar__cluster--start" data-cv-module="sliders">
           <label class="cv-toolbar__label" for="cv-sidebar-left" data-cv-i18n="label-left-width">
             Left gray zone width
           </label>
@@ -38,7 +39,7 @@
             data-cv-css-var="--cv-sidebar-left"
           >
         </div>
-        <div class="cv-toolbar__cluster cv-toolbar__cluster--end">
+        <div class="cv-toolbar__cluster cv-toolbar__cluster--end" data-cv-module="sliders">
           <input
             id="cv-sidebar-right"
             class="cv-toolbar__range cv-toolbar__range--framed"
@@ -53,7 +54,7 @@
             data-cv-css-var="--cv-sidebar-right"
           >
           <div class="cv-toolbar__end-meta">
-            <div class="cv-theme-switch" role="group" aria-label="Theme selector">
+            <div class="cv-theme-switch" role="group" aria-label="Theme selector" data-cv-module="themes">
               <button
                 class="cv-theme-switch__btn"
                 type="button"
@@ -82,7 +83,7 @@
                 Dark
               </button>
             </div>
-            <div class="cv-lang-switch" data-cv-lang-switch>
+            <div class="cv-lang-switch" data-cv-lang-switch data-cv-module="localization">
               <button
                 id="cv-language-select"
                 class="cv-lang-switch__trigger"
@@ -178,7 +179,12 @@
             <aside class="cv-control-rail cv-control-rail--right" aria-label="Right CV controls">
               <ul class="cv-control-rail__list">
                 <li class="cv-control-rail__item">
-                  <button class="cv-control-rail__btn" type="button" aria-label="Add right section">
+                  <button
+                    class="cv-control-rail__btn"
+                    type="button"
+                    aria-label="Add right section"
+                    data-cv-control="right-add-trigger"
+                  >
                     <i class="fa-solid fa-plus" aria-hidden="true"></i>
                   </button>
                 </li>
@@ -193,7 +199,7 @@
               </section>
             </div>
 
-            <aside class="cv-sidebar cv-sidebar--muted" aria-label="Datos laterales derechos">
+            <aside class="cv-sidebar cv-sidebar--muted" aria-label="Datos laterales derechos" data-cv-right-sections>
               <div class="cv-pill-slot">
                 <h2 class="cv-pill">SECCIÓN (LATERAL DERECHA)</h2>
               </div>
@@ -205,7 +211,7 @@
         </div>
       </div>
 
-      <div class="cv-floating-note" data-cv-floating-note hidden>
+      <div class="cv-floating-note" data-cv-floating-note data-cv-module="floating-note" hidden>
         <button
           class="cv-floating-note__close"
           type="button"
@@ -244,6 +250,24 @@
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js" defer></script>
     <script src="vendor/alpine.min.js" defer></script>
     <script src="vendor/dexie.min.js" defer></script>
+    <script src="dist/cv/shared/cv-types.js" defer></script>
+    <script src="dist/cv/shared/cv-dexie-types.js" defer></script>
+    <script src="dist/cv/shared/cv-ui-types.js" defer></script>
+    <script src="dist/cv/modules/sliders.js" defer></script>
+    <script src="dist/cv/modules/themes.js" defer></script>
+    <script src="dist/cv/modules/localization.js" defer></script>
+    <script src="dist/cv/modules/left-section-composer.js" defer></script>
+    <script src="dist/cv/modules/right-section-composer.js" defer></script>
+    <script src="dist/cv/modules/floating-note-module/floating-note.js" defer></script>
+    <script src="dist/cv/modules/floating-note-module/floating-note-add-section.js" defer></script>
+    <script src="dist/cv/domain/cv-left-sections-serializer.js" defer></script>
+    <script src="dist/cv/domain/cv-sections-schema.js" defer></script>
+    <script src="dist/cv/domain/cv-document-mapper.js" defer></script>
+    <script src="dist/cv/data/cv-dexie-repository.js" defer></script>
+    <script src="dist/cv/state/cv-realtime-persistence.js" defer></script>
+    <script src="dist/cv/app/cv-runtime-wiring.js" defer></script>
+    <script src="dist/cv/app/cv-shell-mount.js" defer></script>
+    <script src="dist/cv/app/cv-bootstrap.js" defer></script>
     <script src="dist/cv.js" defer></script>
   </body>
 </html>
